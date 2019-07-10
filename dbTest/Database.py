@@ -6,7 +6,7 @@ class Database:
         host = "127.0.0.1"
         user = "root"
         password = "password"
-        db = "test"
+        db = "db"
 
         self.con = pymysql.connect(host=host, user=user, password=password, db=db,
                                    cursorclass=pymysql.cursors.DictCursor)

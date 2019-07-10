@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    Database().add_user("sla", "123")
-    return "Hello world"
+    users = Database().list_user()
+    return users[0]['name']
 
 
 if __name__ == '__main__':
