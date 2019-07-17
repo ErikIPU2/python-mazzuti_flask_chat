@@ -4,47 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="../static/css.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <title>8-bit Chat</title>
+
+    <style type="text/css">
+        a li {
+            color: grey;
+            text-decoration: none;
+        }
+
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <a href="#!" class="brand-logo center"><i class="nes-icon trophy is-large"></i>⠀⠀8-bit Chat</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#!" onclick="document.getElementById('dialog-rounded').showModal();">Lista de Amigos</a>
+                </li>
+                <!-- DIALOG-->
+            </ul>
+        </div>
+    </nav>
 
-    <i class="nes-octocat animate" style="margin-left: 2.5%; margin-top: 2.5%;"></i>
-    <i class="nes-bulbasaur" style="margin-left: 87%;margin-top: -8.5%;"></i><br>
-    <i class="nes-mario" style="margin-left: 2.5%;margin-top: 0.80%;"></i>
-    <i class="nes-charmander" style="margin-left: 87%;margin-top: -8%;"></i><br>
-    <i class="nes-ash" style="margin-left: 2.5%;margin-top: 0.80%;"></i>
-    <i class="nes-squirtle" style="margin-left: 87%;margin-top: -8%;"></i><br>
-    <i class="nes-pokeball" style="margin-left: 2.5%;margin-top: 0.80%;"></i>
-    <i class="nes-kirby" style="margin-left: 87%;margin-top: -8%;"></i><br>
+    <br><br>
+    <div class="row">
+        <div class="col s1">
+            <i class="nes-mario"></i>
+            <i class="nes-ash"></i>
+            <i class="nes-pokeball"></i>
+            <i class="nes-kirby"></i>
+        </div>
+        <div class="col s9">
+            <div class="nes-container with-title">
+                <p class="title">Chat com { NOME PHODA }</p>
+                <section class="message-list">
+                    <section class="message -left">
+                        <div class="nes-balloon from-left">
+                            <p>Bem-Vindo ao 8-bit Chat</p>
+                        </div>
+                    </section>
 
 
-   
-    <div class="nes-container container with-title" style="margin-top: -38%">
-        <p class="title">Chat</p>
-        <section class="message-list">
-            <section class="message -left">
-                <div class="nes-balloon from-left">
-                    <p>Bem-Vindo ao 8-bit Chat</p>
+
+                    <!-- AQUI VAI AS MENSAGENS -->
+
+                </section>
+
+                <div class="row">
+                    <div class="col s10">
+                        <textarea id="textarea_field" class="nes-textarea"></textarea>
+                    </div>
+                    <div class="col s2">
+                        <button type="button" class="nes-btn is-warning">Enviar</button>
+                    </div>
                 </div>
-            </section>
-
-            <!-- vai aqui as outras mensagens -->
-
-        </section>
-
-        <div class="row">
-            <div class="col s10">
-                <textarea id="textarea_field" class="nes-textarea"></textarea>
-            </div>
-            <div class="col s2">
-                <button type="button" class="nes-btn is-warning">Enviar</button>
             </div>
         </div>
+        <div class="col s2">
+            <i class="nes-octocat animate"></i>
+            <i class="nes-charmander"></i>
+            <i class="nes-squirtle"></i>
+            <i class="nes-bulbasaur"></i>
+        </div>
     </div>
+
+    <section>
+        <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+            <form method="dialog">
+                <p class="title">Amiguinhos</p>
+                <div class="lists">
+                    <ul class="nes-list is-circle">
+                        <a href="#!" class="collection-item">
+                            <li><span class="badge">6</span>Amiguinho1</li>
+                        </a>
+
+                        <a href="#!" class="collection-item">
+                            <li><span class="badge">3</span>Amiguinho2</li>
+                        </a>
+
+                        <a href="#!" class="collection-item">
+                            <li><span class="badge">14</span>Amiguinho3</li>
+                        </a>
+
+                        <a href="#!" class="collection-item">
+                            <li><span class="badge">0</span>Amiguinho4</li>
+                        </a>
+
+                        <!-- AQUI VAI OS AMIGUINHOS -->
+                    </ul>
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary">Confirmar</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
 </body>
 
 </html>
