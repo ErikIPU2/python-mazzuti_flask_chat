@@ -1,8 +1,12 @@
-from flask import Flask
+from flask import Flask, request, session
 from flask import render_template
 from database.Database import Database
 
 app = Flask(__name__)
+
+app.secret_key = "BAZINGA"
+
+
 db = Database()
 
 
@@ -10,9 +14,26 @@ db = Database()
 def index():
     return "<h1>OI</h1>"
 
-@app.route('/login')
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('Login.html')
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+
+        account = db.get_user(username, password)
+
+        if account:
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['username'] = account['username']
+
+            return "ESSA POG FUNCIONOU"
+        else:
+            msg = "Usuario não encontrado"
+
+    return render_template('Login.html', error_msg=msg)
 
 
 @app.route('/cadastro')
