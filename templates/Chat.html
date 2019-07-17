@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <title>8-bit Chat</title>
@@ -41,7 +41,7 @@
         <div class="nav-wrapper grey darken-4">
             <a href="#!" class="brand-logo center"><i class="nes-icon trophy is-large"></i>⠀⠀8-bit Chat</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#!" onclick="document.getElementById('dialog-rounded').showModal();">Lista de Amigos</a>
+                <li><a href="#!" onclick="document.getElementById('conversas').showModal();">Conversas</a>
                 </li>
                 <!-- DIALOG-->
             </ul>
@@ -66,8 +66,6 @@
                         </div>
                     </section>
 
-
-
                     <!-- AQUI VAI AS MENSAGENS -->
 
                 </section>
@@ -82,7 +80,8 @@
                 </div>
             </div>
         </div>
-        <div class="col s2">
+        
+        <div class="col s2 right">
             <i class="nes-octocat animate"></i>
             <i class="nes-charmander"></i>
             <i class="nes-squirtle"></i>
@@ -91,30 +90,60 @@
     </div>
 
     <section>
-        <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+        <dialog class="nes-dialog is-rounded" id="conversas">
             <form method="dialog">
-                <p class="title">Amiguinhos</p>
+                <p class="title">Conversas
+                    <a>
+                        <span class="right" onclick="document.getElementById('amigos').showModal();">Adicionar</span>
+                    </a>
+                </p>
                 <div class="lists">
                     <ul class="nes-list is-circle">
                         <a href="#!" class="collection-item">
-                            <li><span class="badge">6</span>Amiguinho1</li>
+                            <li><span class="badge">6</span>Conversa 1</li>
                         </a>
 
                         <a href="#!" class="collection-item">
-                            <li><span class="badge">3</span>Amiguinho2</li>
+                            <li><span class="badge">3</span>Grupo 1</li>
                         </a>
 
                         <a href="#!" class="collection-item">
-                            <li><span class="badge">14</span>Amiguinho3</li>
+                            <li><span class="badge">14</span>Grupo 2</li>
                         </a>
 
                         <a href="#!" class="collection-item">
-                            <li><span class="badge">0</span>Amiguinho4</li>
+                            <li><span class="badge">0</span>Grupo 3</li>
                         </a>
 
                         <!-- AQUI VAI OS AMIGUINHOS -->
                     </ul>
                 </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary">Confirmar</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <section>
+        <dialog class="nes-dialog" id="amigos">
+            <form method="dialog">
+                <p class="title">Lista de Amigos</p>
+                <label>
+                    <input type="checkbox" class="nes-checkbox" />
+                    <span>Amigo 1</span>
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="nes-checkbox" />
+                    <span>Amigo 2</span>
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="nes-checkbox" />
+                    <span>Amigo 3</span>
+                </label>
                 <menu class="dialog-menu">
                     <button class="nes-btn">Cancelar</button>
                     <button class="nes-btn is-primary">Confirmar</button>
