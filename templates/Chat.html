@@ -99,21 +99,25 @@
                 </p>
                 <div class="lists">
                     <ul class="nes-list is-circle">
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">6</span>Conversa 1</li>
-                        </a>
+{#                        <a href="#!" class="collection-item">#}
+{#                            <li><span class="badge">6</span>Conversa 1</li>#}
+{#                        </a>#}
+{##}
+{#                        <a href="#!" class="collection-item">#}
+{#                            <li><span class="badge">3</span>Grupo 1</li>#}
+{#                        </a>#}
+{##}
+{#                        <a href="#!" class="collection-item">#}
+{#                            <li><span class="badge">14</span>Grupo 2</li>#}
+{#                        </a>#}
 
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">3</span>Grupo 1</li>
-                        </a>
 
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">14</span>Grupo 2</li>
-                        </a>
 
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">0</span>Grupo 3</li>
-                        </a>
+                        {% for room in rooms %}
+                            <a href="#!" class="collection-item">
+                                <li><span class="badge">0</span>{{ room.name }}</li>
+                            </a>
+                        {% endfor %}
 
                         <!-- AQUI VAI OS AMIGUINHOS -->
                     </ul>

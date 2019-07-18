@@ -1,4 +1,4 @@
-from flask import Flask, request, session, redirect, url_for, render_template
+from flask import Flask, request, session, redirect, url_for, render_template, jsonify
 from database.Database import Database
 
 app = Flask(__name__)
@@ -78,9 +78,16 @@ def chat():
             'id': session['id'],
             'username': session['username']
         }
-        return render_template('Chat.html', account=account)
+        rooms = db.get_user_rooms(account['id'])
+        return render_template('Chat.html', account=account, rooms=rooms)
     else:
         return redirect(url_for('login'))
+
+
+@app.route('/rooms')
+def get_rooms():
+    rooms = db.get_user_rooms(session['id'])
+    return jsonify(rooms)
 
 
 if __name__ == '__main__':
