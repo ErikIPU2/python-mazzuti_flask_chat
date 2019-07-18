@@ -5,18 +5,11 @@ app = Flask(__name__)
 
 app.secret_key = "BAZINGA"
 
-db = Database()
-
-
 @app.route('/')
-def index():
-    if 'loggedin' in session:
-        return redirect(url_for('chat'))
-    else:
-        return redirect(url_for('login'))
+def home():
+    return render_template('Index.html')
 
-
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login')
 def login():
     msg = ''
 
