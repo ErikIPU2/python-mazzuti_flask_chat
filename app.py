@@ -4,6 +4,10 @@ from flask import render_template
 app = Flask(__name__)
 
 
+@app.route('/')
+def home():
+    return render_template('Index.html')
+
 @app.route('/login')
 def login():
     return render_template('Login.html')
