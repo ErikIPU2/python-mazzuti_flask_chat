@@ -115,6 +115,19 @@ def add_participant():
         return jsonify({'status': False})
 
 
+@app.route('/send', methods=['POST'])
+def send_message():
+    if request.method == "POST" and 'room_id' in request.form and 'user_id' in request.form and 'message' in request.form:
+        room_id = request.form['room_id']
+        user_id = request.form['user_id']
+        message = request.form['message']
+
+        db.send_message(room_id, user_id, message)
+        return jsonify({'status': True})
+
+    else:
+        return jsonify({'status': False})
+
 
 if __name__ == '__main__':
     app.run()
