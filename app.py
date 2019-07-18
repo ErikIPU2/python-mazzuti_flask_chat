@@ -93,5 +93,15 @@ def get_message(room_id):
     return jsonify(message)
 
 
+@app.route('/create_room', methods=['POST'])
+def create_room():
+    print(request.form, request.method)
+    if request.method == "POST" and 'name' in request.form:
+        db.add_room(request.form['name'])
+        return jsonify("{status: true}")
+    else:
+        return jsonify("{status: false}")
+
+
 if __name__ == '__main__':
     app.run()
