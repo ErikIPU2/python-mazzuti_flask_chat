@@ -89,7 +89,16 @@ def get_rooms():
 
 @app.route('/message/<room_id>')
 def get_message(room_id):
-    message = db.get_user_messages(room_id)
+    message = []
+    users = db.get_users()
+    messages_raw = db.get_user_messages(room_id)
+
+    for _message in messages_raw:
+        message.append({
+            'id': _message['id'],
+            'message': _message['message'],
+            'username': find_user_name_by_id(_message['user_id'], users)
+        })
     return jsonify(message)
 
 
@@ -127,6 +136,13 @@ def send_message():
 
     else:
         return jsonify({'status': False})
+
+
+def find_user_name_by_id(user_id, users):
+    for user in users:
+        if user['id'] == user_id:
+            return user['username']
+    return None
 
 
 if __name__ == '__main__':
