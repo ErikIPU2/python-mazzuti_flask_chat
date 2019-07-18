@@ -97,7 +97,9 @@ def get_message(room_id):
         message.append({
             'id': _message['id'],
             'message': _message['message'],
-            'username': find_user_name_by_id(_message['user_id'], users)
+            'username': find_user_name_by_id(_message['user_id'], users),
+            'user_id': _message['user_id'],
+            'room_id': _message['room_id']
         })
     return jsonify(message)
 
