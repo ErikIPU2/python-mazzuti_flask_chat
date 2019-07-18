@@ -1,11 +1,9 @@
-from flask import Flask, request, session
-from flask import render_template
+from flask import Flask, request, session, redirect, url_for, render_template
 from database.Database import Database
 
 app = Flask(__name__)
 
 app.secret_key = "BAZINGA"
-
 
 db = Database()
 
@@ -34,6 +32,15 @@ def login():
             msg = "Usuario não encontrado"
 
     return render_template('Login.html', error_msg=msg)
+
+
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+
+    return redirect(url_for('login'))
 
 
 @app.route('/cadastro')
