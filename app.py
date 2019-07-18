@@ -95,12 +95,25 @@ def get_message(room_id):
 
 @app.route('/create_room', methods=['POST'])
 def create_room():
-    print(request.form, request.method)
     if request.method == "POST" and 'name' in request.form:
         db.add_room(request.form['name'])
-        return jsonify("{status: true}")
+        return jsonify({'status': True})
     else:
-        return jsonify("{status: false}")
+        return jsonify({'status': False})
+
+
+@app.route('/add_participant', methods=['POST'])
+def add_participant():
+    if request.method == "POST" and 'room_id' in request.form and 'user_id' in request.form:
+        room_id = request.form['room_id']
+        user_id = request.form['user_id']
+
+        db.add_participant(room_id, user_id)
+        return jsonify({'status': True})
+
+    else:
+        return jsonify({'status': False})
+
 
 
 if __name__ == '__main__':

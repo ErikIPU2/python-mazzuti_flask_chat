@@ -71,3 +71,9 @@ class Database:
             sql = "INSERT INTO `room` (`name`) VALUE (%s)"
             cursor.execute(sql, name)
             self.con.commit()
+
+    def add_participant(self, room_id, username_id):
+        with self.con.cursor() as cursor:
+            sql = "INSERT INTO `participants` (`room_id`, `user_id`) VALUE (%s, %s)"
+            cursor.execute(sql, (room_id, username_id))
+            self.con.commit()
