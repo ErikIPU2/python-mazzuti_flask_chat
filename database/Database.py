@@ -53,6 +53,13 @@ class Database:
 
         return rooms
 
+    def get_user_messages(self, room_id):
+        with self.con.cursor() as cursor:
+            sql = 'SELECT * FROM `message` WHERE `room_id` = %s'
+            cursor.execute(sql, room_id)
+            messages = cursor.fetchall()
+        return messages
+
     def add_user(self, username, password):
         with self.con.cursor() as cursor:
             sql = "INSERT INTO  `user` (`username`, `password`) VALUES (%s, %s)"

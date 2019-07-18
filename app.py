@@ -5,11 +5,15 @@ app = Flask(__name__)
 
 app.secret_key = "BAZINGA"
 
+db = Database()
+
+
 @app.route('/')
 def home():
     return render_template('Index.html')
 
-@app.route('/login')
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ''
 
@@ -81,6 +85,12 @@ def chat():
 def get_rooms():
     rooms = db.get_user_rooms(session['id'])
     return jsonify(rooms)
+
+
+@app.route('/message/<room_id>')
+def get_message(room_id):
+    message = db.get_user_messages(room_id)
+    return jsonify(message)
 
 
 if __name__ == '__main__':
