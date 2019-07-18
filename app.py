@@ -43,9 +43,28 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/cadastro')
+@app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
-    return render_template('Cadastro.html')
+    msg = ''
+
+    if request.method == 'POST':
+        if 'username' in request.form and 'password' in request.form:
+            username = request.form['username']
+            password = request.form['password']
+
+            account = db.get_user(username)
+
+            print(account)
+
+            if account:
+                msg = "Nome de usuario já existente"
+            else:
+                db.add_user(username, password)
+                msg = 'Você se cadastrou com sucesso'
+        else:
+            msg = 'Digite todos os campos'
+
+    return render_template('Cadastro.html', error_msg=msg)
 
 
 @app.route('/chat')
