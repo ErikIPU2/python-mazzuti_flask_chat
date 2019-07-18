@@ -10,12 +10,16 @@ db = Database()
 
 @app.route('/')
 def index():
-    return "<h1>OI</h1>"
+    if 'loggedin' in session:
+        return redirect(url_for('chat'))
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ''
+
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
@@ -27,7 +31,7 @@ def login():
             session['id'] = account['id']
             session['username'] = account['username']
 
-            return "ESSA POG FUNCIONOU"
+            return redirect(url_for('chat'))
         else:
             msg = "Usuario não encontrado"
 
@@ -69,7 +73,14 @@ def cadastro():
 
 @app.route('/chat')
 def chat():
-    return render_template('Chat.html')
+    if 'loggedin' in session:
+        account = {
+            'id': session['id'],
+            'username': session['username']
+        }
+        return render_template('Chat.html', account=account)
+    else:
+        return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
