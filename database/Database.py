@@ -64,22 +64,22 @@ class Database:
         with self.con.cursor() as cursor:
             sql = "INSERT INTO  `user` (`username`, `password`) VALUES (%s, %s)"
             cursor.execute(sql, (username, password))
-            self.con.commit()
+        self.con.commit()
 
     def add_room(self, name):
         with self.con.cursor() as cursor:
             sql = "INSERT INTO `room` (`name`) VALUE (%s)"
             cursor.execute(sql, name)
-            self.con.commit()
+        self.con.commit()
 
     def add_participant(self, room_id, username_id):
         with self.con.cursor() as cursor:
             sql = "INSERT INTO `participants` (`room_id`, `user_id`) VALUE (%s, %s)"
             cursor.execute(sql, (room_id, username_id))
-            self.con.commit()
+        self.con.commit()
 
     def send_message(self, room_id, username_id, message):
         with self.con.cursor() as cursor:
             sql = "INSERT INTO `message` (`room_id`, `user_id`, `message`) VALUE (%s, %s, %s)"
             cursor.execute(sql, (room_id, username_id, message))
-            self.con.commit()
+        self.con.commit()

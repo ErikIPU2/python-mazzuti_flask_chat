@@ -89,18 +89,32 @@ def get_rooms():
 
 @app.route('/message/<room_id>')
 def get_message(room_id):
-    message = []
-    users = db.get_users()
-    messages_raw = db.get_user_messages(room_id)
+    if not 'loggedin' in session:
+        message = {
+            'status': False,
+            'message': "Voce precisa estar autenticado para fazer isso"
+        }
+    elif not check_if_user_is_participant_of_group(session['id'], room_id):
+        message = {
+            'status': False,
+            'message': "Voce nao participa desse grupo"
+        }
+    else:
+        message = {
+            'status': True,
+            'messages': []
+        }
+        users = db.get_users()
+        messages_raw = db.get_user_messages(room_id)
 
-    for _message in messages_raw:
-        message.append({
-            'id': _message['id'],
-            'message': _message['message'],
-            'username': find_user_name_by_id(_message['user_id'], users),
-            'user_id': _message['user_id'],
-            'room_id': _message['room_id']
-        })
+        for _message in messages_raw:
+            message['messages'].append({
+                'id': _message['id'],
+                'message': _message['message'],
+                'username': find_user_name_by_id(_message['user_id'], users),
+                'user_id': _message['user_id'],
+                'room_id': _message['room_id']
+            })
     return jsonify(message)
 
 
@@ -145,6 +159,14 @@ def find_user_name_by_id(user_id, users):
         if user['id'] == user_id:
             return user['username']
     return None
+
+
+def check_if_user_is_participant_of_group(user_id, room_id):
+    rooms = db.get_user_rooms(user_id)
+    for room in rooms:
+        if int(room['id']) == int(room_id):
+            return True
+    return False
 
 
 if __name__ == '__main__':
