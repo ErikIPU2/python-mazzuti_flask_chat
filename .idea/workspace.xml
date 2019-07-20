@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b46f95c5-3537-40ac-88dc-5cbfb9b87eba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ff.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ff.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,16 +39,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="86" column="25" lean-forward="true" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+            <state relative-caret-position="502">
+              <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
               <folding>
                 <element signature="e#0#86#0" expanded="true" />
                 <element signature="e#228#264#0" />
-                <element signature="e#330#889#0" />
                 <element signature="e#932#1062#0" />
                 <element signature="e#1134#1730#0" />
                 <element signature="e#1769#2076#0" />
                 <element signature="e#2121#2187#0" />
+                <element signature="e#2253#3165#0" />
+                <element signature="e#3236#3426#0" />
+                <element signature="e#3505#3817#0" />
+                <element signature="e#3882#4272#0" />
+                <element signature="e#4321#4425#0" />
+                <element signature="e#4493#4635#0" />
               </folding>
             </state>
           </provider>
@@ -202,15 +203,15 @@
       <workItem from="1563552768057" duration="2233000" />
       <workItem from="1563564264121" duration="335000" />
       <workItem from="1563566673192" duration="1332000" />
-      <workItem from="1563631669826" duration="5139000" />
+      <workItem from="1563631669826" duration="5951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15986000" />
+    <option name="totallyTimeSpent" value="16798000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-28" width="1366" height="796" extended-state="1" />
+    <frame x="0" y="-28" width="1366" height="796" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24772036" />
@@ -218,7 +219,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329429" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329429" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -304,16 +305,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="86" column="25" lean-forward="true" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+        <state relative-caret-position="502">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
           <folding>
             <element signature="e#0#86#0" expanded="true" />
             <element signature="e#228#264#0" />
-            <element signature="e#330#889#0" />
             <element signature="e#932#1062#0" />
             <element signature="e#1134#1730#0" />
             <element signature="e#1769#2076#0" />
             <element signature="e#2121#2187#0" />
+            <element signature="e#2253#3165#0" />
+            <element signature="e#3236#3426#0" />
+            <element signature="e#3505#3817#0" />
+            <element signature="e#3882#4272#0" />
+            <element signature="e#4321#4425#0" />
+            <element signature="e#4493#4635#0" />
           </folding>
         </state>
       </provider>

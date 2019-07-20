@@ -16,21 +16,24 @@ def home():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ''
-
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+    if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
-        account = db.get_user(username, password)
+        if username and password:
 
-        if account:
-            session['loggedin'] = True
-            session['id'] = account['id']
-            session['username'] = account['username']
+            account = db.get_user(username, password)
 
-            return redirect(url_for('chat'))
+            if account:
+                session['loggedin'] = True
+                session['id'] = account['id']
+                session['username'] = account['username']
+
+                return redirect(url_for('chat'))
+            else:
+                msg = "Usuario não encontrado"
         else:
-            msg = "Usuario não encontrado"
+            msg = "Digite todos os campos"
 
     return render_template('Login.html', error_msg=msg)
 
@@ -49,13 +52,12 @@ def cadastro():
     msg = ''
 
     if request.method == 'POST':
-        if 'username' in request.form and 'password' in request.form:
-            username = request.form['username']
-            password = request.form['password']
+        username = request.form['username']
+        password = request.form['password']
+
+        if username and password:
 
             account = db.get_user(username)
-
-            print(account)
 
             if account:
                 msg = "Nome de usuario já existente"
