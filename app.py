@@ -145,6 +145,18 @@ def add_participant():
         return jsonify({'status': False})
 
 
+@app.route('/remove_participant', methods=['POST'])
+def remove_participant():
+    room_id = request.form['room_id']
+    user_id = request.form['user_id']
+
+    if room_id and user_id:
+        db.remove_participant(room_id, user_id)
+        return jsonify({'status': True})
+    else:
+        return jsonify({'status': False})
+
+
 @app.route('/send', methods=['POST'])
 def send_message():
     room_id = request.form['room_id']
@@ -152,7 +164,7 @@ def send_message():
     message = request.form['message']
 
     if room_id and user_id and message:
-        
+
         db.send_message(room_id, user_id, message)
         return jsonify({'status': True})
 

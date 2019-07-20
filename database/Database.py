@@ -70,11 +70,19 @@ class Database:
         with self.con.cursor() as cursor:
             sql = "INSERT INTO `room` (`name`) VALUE (%s)"
             cursor.execute(sql, name)
+            room_id = cursor.lastrowid
         self.con.commit()
+        return room_id
 
     def add_participant(self, room_id, username_id):
         with self.con.cursor() as cursor:
             sql = "INSERT INTO `participants` (`room_id`, `user_id`) VALUE (%s, %s)"
+            cursor.execute(sql, (room_id, username_id))
+        self.con.commit()
+
+    def remove_participant(self, room_id, username_id):
+        with self.con.cursor() as cursor:
+            sql = "DELETE FROM `participants` WHERE `room_id` = %s and `user_id` = %s"
             cursor.execute(sql, (room_id, username_id))
         self.con.commit()
 
