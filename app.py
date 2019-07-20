@@ -124,8 +124,11 @@ def get_message(room_id):
 @app.route('/create_room', methods=['POST'])
 def create_room():
     name = request.form['name']
-    if name:
-        db.add_room(name)
+    if not 'loggedin' in session:
+        return jsonify({'status': False, 'message': "Voce precisa estar autenticado para fazer isso"})
+    elif name:
+        room_id = db.add_room(name)
+        db.add_participant(room_id, session['id'])
         return jsonify({'status': True})
     else:
         return jsonify({'status': False})

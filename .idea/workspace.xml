@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b46f95c5-3537-40ac-88dc-5cbfb9b87eba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/Database.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
+            <state relative-caret-position="393">
+              <caret line="127" column="99" selection-start-line="127" selection-start-column="99" selection-end-line="127" selection-end-column="99" />
               <folding>
                 <element signature="e#0#86#0" expanded="true" />
               </folding>
@@ -51,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/Database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="276">
+              <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -77,7 +78,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="10" />
     <option name="y" value="32" />
     <option name="width" value="1221" />
@@ -192,12 +193,12 @@
       <workItem from="1563552768057" duration="2233000" />
       <workItem from="1563564264121" duration="335000" />
       <workItem from="1563566673192" duration="1332000" />
-      <workItem from="1563631669826" duration="7263000" />
+      <workItem from="1563631669826" duration="9015000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18110000" />
+    <option name="totallyTimeSpent" value="19862000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-28" width="1366" height="796" extended-state="0" />
@@ -231,7 +232,7 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_mazzuti_flask_chat$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1563632382201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_mazzuti_flask_chat$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1563666878728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/529542a0-1227-4248-a7f9-a9857156db35/console.sql" />
@@ -271,13 +272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/Database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/sql.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27">
@@ -292,10 +286,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/Database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
+        <state relative-caret-position="393">
+          <caret line="127" column="99" selection-start-line="127" selection-start-column="99" selection-end-line="127" selection-end-column="99" />
           <folding>
             <element signature="e#0#86#0" expanded="true" />
           </folding>
