@@ -64,6 +64,7 @@ def cadastro():
             else:
                 db.add_user(username, password)
                 msg = 'Você se cadastrou com sucesso'
+                return render_template('Login.html', error_msg=msg)
         else:
             msg = 'Digite todos os campos'
 
@@ -122,8 +123,9 @@ def get_message(room_id):
 
 @app.route('/create_room', methods=['POST'])
 def create_room():
-    if request.method == "POST" and 'name' in request.form:
-        db.add_room(request.form['name'])
+    name = request.form['name']
+    if name:
+        db.add_room(name)
         return jsonify({'status': True})
     else:
         return jsonify({'status': False})
@@ -131,10 +133,11 @@ def create_room():
 
 @app.route('/add_participant', methods=['POST'])
 def add_participant():
-    if request.method == "POST" and 'room_id' in request.form and 'user_id' in request.form:
-        room_id = request.form['room_id']
-        user_id = request.form['user_id']
 
+    room_id = request.form['room_id']
+    user_id = request.form['user_id']
+
+    if room_id and user_id:
         db.add_participant(room_id, user_id)
         return jsonify({'status': True})
 
@@ -144,11 +147,12 @@ def add_participant():
 
 @app.route('/send', methods=['POST'])
 def send_message():
-    if request.method == "POST" and 'room_id' in request.form and 'user_id' in request.form and 'message' in request.form:
-        room_id = request.form['room_id']
-        user_id = request.form['user_id']
-        message = request.form['message']
+    room_id = request.form['room_id']
+    user_id = request.form['user_id']
+    message = request.form['message']
 
+    if room_id and user_id and message:
+        
         db.send_message(room_id, user_id, message)
         return jsonify({'status': True})
 
