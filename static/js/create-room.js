@@ -8,7 +8,9 @@ $(document).ready(() => {
                 url: 'create_room',
                 data: {name: room_name},
                 success: (data) => {
-                    console.log(data)
+                    if (!data.status) {
+                        alert(data.message)
+                    }
                 }
             })
         }
