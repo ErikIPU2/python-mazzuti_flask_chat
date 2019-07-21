@@ -123,12 +123,22 @@ def get_message(room_id):
 
 @app.route('/create_room', methods=['POST'])
 def create_room():
-    name = request.form['name']
     if not 'loggedin' in session:
         return jsonify({'status': False, 'message': "Voce precisa estar autenticado para fazer isso"})
-    elif name:
+    elif 'name' in request.form:
+        name = request.form['name']
         room_id = db.add_room(name)
         db.add_participant(room_id, session['id'])
+        return jsonify({'status': True})
+    else:
+        return jsonify({'status': False})
+
+
+@app.route('/delete_room', methods=['POST'])
+def delete_room():
+    if 'room_id' in request.form:
+        room_id = request.form['room_id']
+        db.delete_room(room_id)
         return jsonify({'status': True})
     else:
         return jsonify({'status': False})

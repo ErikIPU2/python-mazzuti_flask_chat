@@ -74,6 +74,14 @@ class Database:
         self.con.commit()
         return room_id
 
+    def delete_room(self, room_id):
+        with self.con.cursor() as cursor:
+            sql = "DELETE FROM `participants` WHERE `room_id` = %s"
+            cursor.execute(sql, room_id)
+            sql = "DELETE FROM `room` WHERE `id` = %s"
+            cursor.execute(sql, room_id)
+        self.con.commit()
+
     def add_participant(self, room_id, username_id):
         with self.con.cursor() as cursor:
             sql = "INSERT INTO `participants` (`room_id`, `user_id`) VALUE (%s, %s)"
