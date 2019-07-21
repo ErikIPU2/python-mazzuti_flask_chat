@@ -1,4 +1,4 @@
-#!/home/erikborella/PycharmProjects/ff/venv/bin/python
+#!/home/erik/PycharmProjects/python-mazzuti_flask_chat/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

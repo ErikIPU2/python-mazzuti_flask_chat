@@ -1,12 +1,13 @@
 from flask import Flask, request, session, redirect, url_for, render_template, jsonify
 from database.Database import Database
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
 
 app.secret_key = "BAZINGA"
 
 db = Database()
-
+socketio = SocketIO(app)
 
 @app.route('/')
 def home():
@@ -201,4 +202,4 @@ def check_if_user_is_participant_of_group(user_id, room_id):
 
 
 if __name__ == '__main__':
-    app.run()
+    socketio.run(app)
