@@ -127,28 +127,15 @@
             <form method="dialog">
                 <p class="title">Conversas
                     <a>
-                        <span class="right" onclick="document.getElementById('amigos').showModal();">Adicionar</span>
+                        <span class="right" onclick="document.getElementById('create_room_dialog').showModal();">Criar sala</span>
                     </a>
                 </p>
                 <div class="lists">
                     <ul class="nes-list is-circle">
-{#                        <a href="#!" class="collection-item">#}
-{#                            <li><span class="badge">6</span>Conversa 1</li>#}
-{#                        </a>#}
-{##}
-{#                        <a href="#!" class="collection-item">#}
-{#                            <li><span class="badge">3</span>Grupo 1</li>#}
-{#                        </a>#}
-{##}
-{#                        <a href="#!" class="collection-item">#}
-{#                            <li><span class="badge">14</span>Grupo 2</li>#}
-{#                        </a>#}
-
-
 
                         {% for room in rooms %}
                             <a href="#!" class="collection-item">
-                                <li><span class="badge">0</span>{{ room.name }}</li>
+                                <li><span class="badge" id="badge-{{ room.id }}">0</span>{{ room.name }}</li>
                             </a>
                         {% endfor %}
 
@@ -189,6 +176,25 @@
         </dialog>
     </section>
 
+    <section>
+        <dialog class="nes-dialog" id="create_room_dialog">
+            <form method="dialog">
+                <div id="jquery_form_create-room">
+                    <p class="title">Criar sala</p>
+                    <label for="jf_create-room_name">Nome da sala</label>
+                    <input type="text" id="jf_create-room_name" class="nes-input">
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary" id="jf_create_create">Criar</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
 </body>
+
+<script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.4.1.min.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/create-room.js") }}"></script>
 
 </html>
