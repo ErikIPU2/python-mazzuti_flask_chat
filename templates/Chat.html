@@ -73,7 +73,7 @@
                             <p>Bem-Vindo ao 8-bit Chat</p>
                         </div>
                     </section>
-                    <section class="message -left">
+                    <section class="message -right">
                         <div class="nes-balloon from-left">
                             <p>Bem-Vindo ao 8-bit Chat</p>
                         </div>
@@ -131,11 +131,11 @@
                     </a>
                 </p>
                 <div class="lists">
-                    <ul class="nes-list is-circle">
+                    <ul class="nes-list is-circle" id="rooms-list">
 
                         {% for room in rooms %}
                             <a href="#!" class="collection-item">
-                                <li><span class="badge" id="badge-{{ room.id }}">0</span>{{ room.name }}</li>
+                                <li><span class="badge" room-id="{{ room.id }}">0</span>{{ room.name }}</li>
                             </a>
                         {% endfor %}
 
@@ -181,12 +181,12 @@
             <form method="dialog">
                 <div id="jquery_form_create-room">
                     <p class="title">Criar sala</p>
-                    <label for="jf_create-room_name">Nome da sala</label>
-                    <input type="text" id="jf_create-room_name" class="nes-input">
+                    <label for="jf_create_room-name">Nome da sala</label>
+                    <input type="text" id="jf_create_room-name" class="nes-input">
                 </div>
                 <menu class="dialog-menu">
                     <button class="nes-btn">Cancelar</button>
-                    <button class="nes-btn is-primary" id="jf_create_create">Criar</button>
+                    <button class="nes-btn is-primary" id="jf_create-create">Criar</button>
                 </menu>
             </form>
         </dialog>
@@ -195,6 +195,7 @@
 </body>
 
 <script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.4.1.min.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/ui-updater.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/create-room.js") }}"></script>
 
 </html>

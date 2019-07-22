@@ -1,6 +1,7 @@
 $(document).ready(() => {
-    $('#jf_create_create').click(() => {
-        let room_name = $('#jf_create-room_name').val();
+    $('#jf_create-create').click(() => {
+        let room = $('#jf_create_room-name');
+        let room_name = $(room).val();
 
         if (room_name) {
             $.ajax({
@@ -9,7 +10,10 @@ $(document).ready(() => {
                 data: {name: room_name},
                 success: (data) => {
                     if (!data.status) {
-                        alert(data.message)
+                        alert(data.message);
+                    } else {
+                        $(room).val("");
+                        update_rooms();
                     }
                 }
             })
