@@ -93,7 +93,7 @@
                         <button type="button" class="nes-btn" id="button_add_participant">Adicionar participante</button>
                     </div>
                     <div class="col s6 right-align">
-                        <button type="button" class="nes-btn">Remover participante</button>
+                        <button type="button" class="nes-btn" id="button_remove_participant">Remover participante</button>
                     </div>
                 </div>
             </div>
@@ -194,6 +194,24 @@
         </dialog>
     </section>
 
+    <section>
+        <dialog class="nes-dialog" id="remove_participant_dialog">
+            <form method="dialog" id="form_remove_participant_dialog">
+                <div id="remove_participant_selector">
+                    <p class="title">Selecione quem você deseja remover:</p>
+                    <div id="remove_participants_checkbox">
+
+                    </div>
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary" id="dialog_button_remove_participant">Remover</button>
+                </menu>
+            </form>
+
+        </dialog>
+    </section>
+
 </body>
 
 {# define global constant USERNAME and USERNAME_ID #}
@@ -207,5 +225,6 @@
 <script type="text/javascript" src="{{ url_for('static', filename="js/create-room.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/change-room.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/add_participant.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/remove_participant.js") }}"></script>
 
 </html>

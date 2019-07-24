@@ -185,12 +185,29 @@ def send_message():
         return jsonify({'status': False})
 
 
+@app.route('/get_participants_users', methods=['POST'])
+def get_participants_users():
+    room_id = request.form['room_id']
+
+    if room_id:
+        participants = db.get_participants(room_id)
+        users = db.get_users()
+        for participant in participants:
+            participant['username'] = find_user_name_by_id(participant['user_id'], users)
+            participant['id'] = participant['user_id']
+            del participant['room_id']
+            del participant['user_id']
+        return jsonify({'status': True, 'participants': participants})
+
+
 @app.route('/get_not_participant_users', methods=['POST'])
 def get_not_participant_users():
     room_id = request.form['room_id']
 
     if room_id:
         participants = db.get_not_participant_users(room_id)
+        for participan in participants:
+            del participan['password']
         return jsonify({'status': True, 'participants': participants})
 
 
