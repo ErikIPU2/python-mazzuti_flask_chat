@@ -10,7 +10,7 @@ $(document).ready(() => {
                 let html_template = "";
                 for (let participant of data.participants) {
                     html_template += `<label>
-                                        <input type="radio" class="nes-radio" name="radio_remove_participants" value="${participant.id}" />
+                                        <input type="checkbox" class="nes-checkbox" name="${participant.username}" value="${participant.id}" />
                                         <span>${participant.username}</span>
                                       </label>
                                       <br>`
@@ -21,19 +21,21 @@ $(document).ready(() => {
     });
 
     $("#dialog_button_remove_participant").click(() => {
-        let users_to_remove = $('#form_remove_participant_dialog').serializeArray()[0];
-        $.ajax({
-            type: 'POST',
-            url: 'remove_participant',
-            data: {
-                room_id: active_room_id,
-                user_id: users_to_remove.value
-            },
-            success: (data) => {
-                if (!data.status) {
-                    alert(data.message);
+        let users_to_remove = $('#form_remove_participant_dialog').serializeArray();
+        for (let user of users_to_remove) {
+            $.ajax({
+                type: 'POST',
+                url: 'remove_participant',
+                data: {
+                    room_id: active_room_id,
+                    user_id: user.value
+                },
+                success: (data) => {
+                    if (!data.status) {
+                        alert(data.message);
+                    }
                 }
-            }
-        })
+            })
+        }
     })
 });
