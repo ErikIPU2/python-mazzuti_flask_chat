@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 app.secret_key = "BAZINGA"
 
-db = Database()
+# Database() = Database()
 socketio = SocketIO(app)
 
 @app.route('/')
@@ -23,7 +23,7 @@ def login():
 
         if username and password:
 
-            account = db.get_user(username, password)
+            account = Database().get_user(username, password)
 
             if account:
                 session['loggedin'] = True
@@ -58,12 +58,12 @@ def cadastro():
 
         if username and password:
 
-            account = db.get_user(username)
+            account = Database().get_user(username)
 
             if account:
                 msg = "Nome de usuario já existente"
             else:
-                db.add_user(username, password)
+                Database().add_user(username, password)
                 msg = 'Você se cadastrou com sucesso'
                 return render_template('Login.html', error_msg=msg)
         else:
@@ -79,7 +79,7 @@ def chat():
             'id': session['id'],
             'username': session['username']
         }
-        rooms = db.get_user_rooms(account['id'])
+        rooms = Database().get_user_rooms(account['id'])
         return render_template('Chat.html', account=account, rooms=rooms)
     else:
         return redirect(url_for('login'))
@@ -87,7 +87,7 @@ def chat():
 
 @app.route('/rooms')
 def get_rooms():
-    rooms = db.get_user_rooms(session['id'])
+    rooms = Database().get_user_rooms(session['id'])
     return jsonify(rooms)
 
 
@@ -109,8 +109,8 @@ def get_message(room_id):
             'room_id': room_id,
             'messages': []
         }
-        users = db.get_users()
-        messages_raw = db.get_user_messages(room_id)
+        users = Database().get_users()
+        messages_raw = Database().get_user_messages(room_id)
 
         for _message in messages_raw:
             message['messages'].append({
@@ -128,8 +128,8 @@ def create_room():
         return jsonify({'status': False, 'message': "Voce precisa estar autenticado para fazer isso"})
     elif 'name' in request.form:
         name = request.form['name']
-        room_id = db.add_room(name)
-        db.add_participant(room_id, session['id'])
+        room_id = Database().add_room(name)
+        Database().add_participant(room_id, session['id'])
         return jsonify({'status': True})
     else:
         return jsonify({'status': False})
@@ -139,7 +139,7 @@ def create_room():
 def delete_room():
     if 'room_id' in request.form:
         room_id = request.form['room_id']
-        db.delete_room(room_id)
+        Database().delete_room(room_id)
         return jsonify({'status': True})
     else:
         return jsonify({'status': False})
@@ -152,7 +152,7 @@ def add_participant():
     user_id = request.form['user_id']
 
     if room_id and user_id:
-        db.add_participant(room_id, user_id)
+        Database().add_participant(room_id, user_id)
         return jsonify({'status': True})
 
     else:
@@ -165,7 +165,7 @@ def remove_participant():
     user_id = request.form['user_id']
 
     if room_id and user_id:
-        db.remove_participant(room_id, user_id)
+        Database().remove_participant(room_id, user_id)
         return jsonify({'status': True})
     else:
         return jsonify({'status': False})
@@ -178,7 +178,7 @@ def send_message():
 
     if room_id and message:
 
-        db.send_message(room_id, session['id'], message)
+        Database().send_message(room_id, session['id'], message)
         return jsonify({'status': True})
 
     else:
@@ -190,8 +190,8 @@ def get_participants_users():
     room_id = request.form['room_id']
 
     if room_id:
-        participants = db.get_participants(room_id)
-        users = db.get_users()
+        participants = Database().get_participants(room_id)
+        users = Database().get_users()
         for participant in participants:
             participant['username'] = find_user_name_by_id(participant['user_id'], users)
             participant['id'] = participant['user_id']
@@ -205,7 +205,7 @@ def get_not_participant_users():
     room_id = request.form['room_id']
 
     if room_id:
-        participants = db.get_not_participant_users(room_id)
+        participants = Database().get_not_participant_users(room_id)
         for participan in participants:
             del participan['password']
         return jsonify({'status': True, 'participants': participants})
@@ -219,7 +219,7 @@ def find_user_name_by_id(user_id, users):
 
 
 def check_if_user_is_participant_of_group(user_id, room_id):
-    rooms = db.get_user_rooms(user_id)
+    rooms = Database().get_user_rooms(user_id)
     for room in rooms:
         if int(room['id']) == int(room_id):
             return True
