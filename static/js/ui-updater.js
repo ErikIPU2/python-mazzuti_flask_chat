@@ -3,6 +3,24 @@ let messages_cache = [];
 
 var active_room_id = null;
 
+function show_group_info() {
+    if (active_room_id) {
+        document.getElementById('group_info_dialog').showModal();
+        $.ajax({
+            type: 'POST',
+            url: 'get_participants_users',
+            data: {room_id: active_room_id},
+            success: (data) => {
+                let html_template = "";
+                for (let participant of data.participants) {
+                    html_template += `<li>${participant.username}</li>`
+                }
+                $('#group_info_participants_list').html(html_template);
+            }
+        });
+    }
+}
+
 function update_rooms() {
     $.ajax({
         type: 'GET',

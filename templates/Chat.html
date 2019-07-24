@@ -65,7 +65,7 @@
         </div>
         <div class="col s9">
             <div class="nes-container with-title">
-                <p class="title">Chat com <span id="room_name">8-bit Chat</span></p>
+                <a class="title" onclick="show_group_info()" title="Clicke aqui para ver informações sobre o grupo atual">Chat com <span id="room_name">8-bit Chat</span></a>
                 <section class="message-list" id="messages" style="overflow-x: hidden; overflow-y: scroll">
 
 
@@ -208,7 +208,29 @@
                     <button class="nes-btn is-primary" id="dialog_button_remove_participant">Remover</button>
                 </menu>
             </form>
+        </dialog>
+    </section>
 
+    <section>
+        <dialog class="nes-dialog" id="group_info_dialog">
+            <form method="dialog">
+                <div>
+                    <p class="title">Informações do grupo <span id="grupo-_info_name"></span></p>
+                    <div id="group_info_info">
+                        <div class="nes-container with-title is-centered">
+                          <p class="title">Participantes: </p>
+                          <div class="lists">
+                              <ul class="nes-list is-disc" id="group_info_participants_list">
+
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-primary">Fechar</button>
+                </menu>
+            </form>
         </dialog>
     </section>
 
