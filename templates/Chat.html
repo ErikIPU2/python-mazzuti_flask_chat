@@ -34,6 +34,10 @@
             color: white;
             text-decoration: none;
         }
+
+        .-right {
+            text-align: end;
+        }
     </style>
 </head>
 
@@ -61,39 +65,11 @@
         </div>
         <div class="col s9">
             <div class="nes-container with-title">
-                <p class="title">Chat com { NOME PHODA }</p>
-                <section class="message-list" style="overflow-x: hidden; overflow-y: scroll">
+                <p class="title">Chat com <span id="room_name">8-bit Chat</span></p>
+                <section class="message-list" id="messages" style="overflow-x: hidden; overflow-y: scroll">
+
+
                     <section class="message -left" >
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -right">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
                         <div class="nes-balloon from-left">
                             <p>Bem-Vindo ao 8-bit Chat</p>
                         </div>
@@ -135,7 +111,7 @@
 
                         {% for room in rooms %}
                             <a href="#!" class="collection-item">
-                                <li><span class="badge" room-id="{{ room.id }}">0</span>{{ room.name }}</li>
+                                <li room-id="{{ room.id }}" class="room"><span class="badge">0</span>{{ room.name }}</li>
                             </a>
                         {% endfor %}
 
@@ -194,8 +170,15 @@
 
 </body>
 
+{# define global constant USERNAME and USERNAME_ID #}
+<script type="text/javascript">
+    var USERNAME = '{{ account.username }}';
+    var USERNAME_ID = {{ account.id }};
+</script>
+
 <script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.4.1.min.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/ui-updater.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/create-room.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/change-room.js") }}"></script>
 
 </html>
