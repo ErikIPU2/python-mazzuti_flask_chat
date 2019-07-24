@@ -99,3 +99,24 @@ class Database:
             sql = "INSERT INTO `message` (`room_id`, `user_id`, `message`) VALUE (%s, %s, %s)"
             cursor.execute(sql, (room_id, username_id, message))
         self.con.commit()
+
+    def get_participants(self, room_id):
+        with self.con.cursor() as cursor:
+            sql = "SELECT * FROM `participants` WHERE `room_id` = %s"
+            cursor.execute(sql, room_id)
+            participants = cursor.fetchall()
+        return participants
+
+    def get_not_participant_users(self, room_id):
+        participants = self.get_participants(room_id)
+        users = self.get_users()
+        not_participants = []
+        for user in users:
+            is_participant = False
+            for participant in participants:
+                if user['id'] == participant['user_id']:
+                    is_participant = True
+                    break
+            if not is_participant:
+                not_participants.append(user)
+        return not_participants

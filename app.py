@@ -185,6 +185,15 @@ def send_message():
         return jsonify({'status': False})
 
 
+@app.route('/get_not_participant_users', methods=['POST'])
+def get_not_participant_users():
+    room_id = request.form['room_id']
+
+    if room_id:
+        participants = db.get_not_participant_users(room_id)
+        return jsonify({'status': True, 'participants': participants})
+
+
 def find_user_name_by_id(user_id, users):
     for user in users:
         if user['id'] == user_id:

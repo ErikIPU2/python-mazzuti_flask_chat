@@ -87,6 +87,15 @@
                         <button type="button" class="nes-btn is-warning">Enviar</button>
                     </div>
                 </div>
+
+                <div class="row" id="add-remove_buttons" style="display: none">
+                    <div class="col s6">
+                        <button type="button" class="nes-btn" id="button_add_participant">Adicionar participante</button>
+                    </div>
+                    <div class="col s6 right-align">
+                        <button type="button" class="nes-btn">Remover participante</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -168,6 +177,23 @@
         </dialog>
     </section>
 
+    <section>
+        <dialog class="nes-dialog" id="add_participant_dialog">
+            <form method="dialog" id="form_add_participant_dialog">
+                <div id="participant_selector">
+                    <p class="title">Selecione quem você deseja adicionar:</p>
+                    <div id="participants_checkbox">
+
+                    </div>
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary" id="dialog_button_add_participant">Adicionar</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
 </body>
 
 {# define global constant USERNAME and USERNAME_ID #}
@@ -180,5 +206,6 @@
 <script type="text/javascript" src="{{ url_for('static', filename="js/ui-updater.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/create-room.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/change-room.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/add_participant.js") }}"></script>
 
 </html>
