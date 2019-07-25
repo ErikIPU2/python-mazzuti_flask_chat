@@ -81,10 +81,10 @@
 
                 <div class="row">
                     <div class="col s10">
-                        <textarea id="textarea_field" class="nes-textarea"></textarea>
+                        <textarea id="message_textarea" class="nes-textarea"></textarea>
                     </div>
                     <div class="col s2">
-                        <button type="button" class="nes-btn is-warning">Enviar</button>
+                        <button type="button" id="send_message_button" class="nes-btn is-warning">Enviar</button>
                     </div>
                 </div>
 
@@ -248,5 +248,6 @@
 <script type="text/javascript" src="{{ url_for('static', filename="js/change-room.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/add_participant-checkbox.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/remove_participant-checkbox.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/send_message.js") }}"></script>
 
 </html>
