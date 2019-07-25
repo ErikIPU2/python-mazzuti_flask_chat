@@ -78,6 +78,8 @@ class Database:
         with self.con.cursor() as cursor:
             sql = "DELETE FROM `participants` WHERE `room_id` = %s"
             cursor.execute(sql, room_id)
+            sql = "DELETE FROM `message` WHERE `room_id` = %s"
+            cursor.execute(sql, room_id)
             sql = "DELETE FROM `room` WHERE `id` = %s"
             cursor.execute(sql, room_id)
         self.con.commit()
