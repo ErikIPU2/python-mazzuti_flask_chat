@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../static/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="../static/icon.ico" >
+    <link rel="shortcut icon" href="../static/icon.ico">
     <title>8-bit Chat</title>
 
     <style type="text/css">
@@ -51,55 +51,64 @@
         </div>
     </nav>
 
-    <br><br>
-    <div class="row">
-        <div class="col s1">
+    <br>
+    <div class="row" style="height: 450px;">
+        <div class="col s1 left">
             <i class="nes-mario"></i>
-            <i class="nes-ash"></i>
-            <i class="nes-pokeball"></i>
-            <i class="nes-kirby"></i>
+            <i class="nes-ash" style="margin-top: 60%"></i>
+            <i class="nes-pokeball" style="margin-top: 60%"></i>
+            <i class="nes-kirby" style="margin-top: 60%"></i>
         </div>
-        <div class="col s9">
+        <div class="col s10">
             <div class="nes-container with-title">
                 <p class="title">Chat com { NOME PHODA }</p>
-                <section class="message-list" style="overflow-x: hidden; overflow-y: scroll">
-                    <section class="message -left" >
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
+
+                <section id="chat" class="message-list" style="overflow-x: hidden; overflow-y: auto; height: 450px;">
+
                     <section class="message -left">
+                        <!-- Balloon -->
                         <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
-                        </div>
-                    </section>
-                    <section class="message -left">
-                        <div class="nes-balloon from-left">
-                            <p>Bem-Vindo ao 8-bit Chat</p>
+                            <p>Hello NES.css</p>
                         </div>
                     </section>
 
-                    <!-- AQUI VAI AS MENSAGENS -->
+                    <section class="message -right">
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-right">
+                            <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+                        </div>
+                    </section>
+
+                    <section class="message -right">
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-right">
+                            <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+                        </div>
+                    </section>
+
+                    <section class="message -left">
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-left">
+                            <p>Hello NES.css</p>
+                        </div>
+                    </section>
+                    <section class="message -left">
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-left">
+                            <p>Hello NES.css</p>
+                        </div>
+                    </section>
+
+                    <section class="message -left">
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-left">
+                            <p>Hello NES.css</p>
+                        </div>
+                    </section>
+
+
+
+                    <!-- cada section uma msg -->
 
                 </section>
 
@@ -114,11 +123,11 @@
             </div>
         </div>
 
-        <div class="col s2 right">
+        <div class="col s1 right" style="padding-left: 0%; overflow-x: hidden;">
             <i class="nes-octocat animate"></i>
-            <i class="nes-charmander"></i>
-            <i class="nes-squirtle"></i>
-            <i class="nes-bulbasaur"></i>
+            <i class="nes-charmander" style="margin-top: 45%"></i>
+            <i class="nes-squirtle" style="margin-top: 45%"></i>
+            <i class="nes-bulbasaur" style="margin-top: 45%"></i>
         </div>
     </div>
 
@@ -184,7 +193,6 @@
             </form>
         </dialog>
     </section>
-
 </body>
 
 </html>
