@@ -82,7 +82,7 @@
             <div class="nes-container with-title">
                 <p class="title" id="room_name">8-bit chat</p>
 
-                <section id="chat" class="message-list" style="overflow-x: hidden; overflow-y: auto; height: 450px;">
+                <section id="messages" class="message-list" style="overflow-x: hidden; overflow-y: auto; height: 450px;">
 
                     <section class="message -left">
                         <div class="nes-balloon from-left">
@@ -152,25 +152,12 @@
                 </p>
                 <div style="overflow-y: auto; max-height: 150px;">
                     <ul>
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">6</span>Conversa 1</li>
-                        </a>
-
                         {% for room in rooms %}
                             <a href="#!" class="collection-item">
                                 <li room-id="{{ room.id }}" class="room"><span class="badge">0</span>{{ room.name }}</li>
                             </a>
                         {% endfor %}
 
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">14</span>Grupo 2</li>
-                        </a>
-
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">0</span>Grupo 3</li>
-                        </a>
-
-                        <!-- AQUI VAI AS CONVERSAS -->
                     </ul>
                 </div>
                 <menu class="dialog-menu">
@@ -317,6 +304,7 @@
 
 <script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.4.1.min.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/LazyHtmlCache.js") }}"></script>
 
 
 </html>
