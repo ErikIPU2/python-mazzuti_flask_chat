@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../static/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="../static/icon.ico" >
+    <link rel="shortcut icon" href="../static/icon.ico">
     <title>8-bit Chat</title>
 
     <style type="text/css">
@@ -36,7 +36,7 @@
         }
 
         .-right {
-            text-align: end;
+            text-align: right;
         }
     </style>
 </head>
@@ -44,44 +44,69 @@
 <body>
     <nav>
         <div class="nav-wrapper grey darken-4">
-            <a href="#!" class="brand-logo center"><i class="nes-icon trophy is-large"></i>⠀⠀8-bit Chat</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#!" onclick="document.getElementById('conversas').showModal();">Conversas</a>
+            <ul class="left hide-on-med-and-down">
+                <li>
+                    <a onclick="document.getElementById('participantes').showModal();">Participantes</a>
                 </li>
-                <li><a href="/logout">Sair</a>
+            </ul>
+            <a class="brand-logo center"><i class="nes-icon trophy is-large"></i>⠀⠀8-bit Chat</a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a onclick="document.getElementById('conversas').showModal();">Conversas</a>
+                </li>
+                <li>
+                    <a href="/logout">Sair</a>
                 </li>
                 <!-- DIALOG-->
             </ul>
         </div>
     </nav>
 
-    <br><br>
-    <div class="row">
-        <div class="col s1">
-            <i class="nes-mario"></i>
-            <i class="nes-ash"></i>
-            <i class="nes-pokeball"></i>
-            <i class="nes-kirby"></i>
+    <br>
+    <div class="row" style="height: 450px;">
+        <div class="col s1 left">
+            <a href="https://desciclopedia.org/wiki/Super_Mario">
+                <i class="nes-mario"></i>
+            </a>
+            <a href="https://bulbapedia.bulbagarden.net/wiki/Ash_Ketchum">
+                <i class="nes-ash" style="margin-top: 60%"></i>
+            </a>
+            <a href="https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9_Ball">
+                <i class="nes-pokeball" style="margin-top: 60%"></i>
+            </a>
+            <a href="https://desciclopedia.org/wiki/Kirby">
+                <i class="nes-kirby" style="margin-top: 60%"></i>
+            </a>
         </div>
-        <div class="col s9">
+        <div class="col s10">
             <div class="nes-container with-title">
-                <a class="title" onclick="show_group_info()" title="Clicke aqui para ver informações sobre o grupo atual">Chat com <span id="room_name">8-bit Chat</span></a>
-                <section class="message-list" id="messages" style="overflow-x: hidden; overflow-y: scroll">
+                <p class="title">[[ Nome do grupo/Nome da pessoa ]]</p>
 
+                <section id="chat" class="message-list" style="overflow-x: hidden; overflow-y: auto; height: 450px;">
 
-                    <section class="message -left" >
+                    <section class="message -left">
                         <div class="nes-balloon from-left">
+                            <label>
+                                <span style="color: red">8Bit</span>
+                            </label>
                             <p>Bem-Vindo ao 8-bit Chat</p>
                         </div>
                     </section>
 
-                    <!-- AQUI VAI AS MENSAGENS -->
+                    <section class="message -right">
+                        <div class="nes-balloon from-right">
+                            <p>Novas conversas e informações na NavBar</p>
+                        </div>
+                    </section>
+
+                    <!-- Cada section uma msg -->
 
                 </section>
 
                 <div class="row">
                     <div class="col s10">
-                        <textarea id="message_textarea" class="nes-textarea"></textarea>
+                        <textarea style="resize: none; overflow: hidden; height: auto;" id="textarea_field"
+                            class="nes-textarea"></textarea>
                     </div>
                     <div class="col s2">
                         <button type="button" id="send_message_button" class="nes-btn is-warning">Enviar</button>
@@ -99,11 +124,18 @@
             </div>
         </div>
 
-        <div class="col s2 right">
-            <i class="nes-octocat animate"></i>
-            <i class="nes-charmander"></i>
-            <i class="nes-squirtle"></i>
-            <i class="nes-bulbasaur"></i>
+        <div class="col s1 right" style="padding-left: 0%; overflow-x: hidden;">
+            <a href="https://github.com/ErikIPU2/python-mazzuti_flask_chat">
+                <i class="nes-octocat animate"></i>
+            </a>
+            <a href="https://www.pokemon.com/br/pokedex/charmander">
+                <i class="nes-charmander" style="margin-top: 45%"></i></a>
+            <a href="https://www.pokemon.com/br/pokedex/squirtle">
+                <i class="nes-squirtle" style="margin-top: 45%"></i>
+            </a>
+            <a href="https://www.pokemon.com/br/pokedex/bulbasaur">
+                <i class="nes-bulbasaur" style="margin-top: 45%"></i>
+            </a>
         </div>
     </div>
 
@@ -115,8 +147,11 @@
                         <span class="right" onclick="document.getElementById('create_room_dialog').showModal();">Criar sala</span>
                     </a>
                 </p>
-                <div class="lists">
-                    <ul class="nes-list is-circle" id="rooms-list">
+                <div style="overflow-y: auto; max-height: 150px;">
+                    <ul>
+                        <a href="#!" class="collection-item">
+                            <li><span class="badge">6</span>Conversa 1</li>
+                        </a>
 
                         {% for room in rooms %}
                             <a href="#!" class="collection-item">
@@ -124,7 +159,15 @@
                             </a>
                         {% endfor %}
 
-                        <!-- AQUI VAI OS AMIGUINHOS -->
+                        <a href="#!" class="collection-item">
+                            <li><span class="badge">14</span>Grupo 2</li>
+                        </a>
+
+                        <a href="#!" class="collection-item">
+                            <li><span class="badge">0</span>Grupo 3</li>
+                        </a>
+
+                        <!-- AQUI VAI AS CONVERSAS -->
                     </ul>
                 </div>
                 <menu class="dialog-menu">
@@ -136,23 +179,49 @@
     </section>
 
     <section>
+        <dialog class="nes-dialog is-rounded" id="participantes">
+            <form method="dialog">
+                <p class="title">3 participantes</p>
+                <div style="overflow-y: auto; max-height: 150px;">
+                    <label style="color:rgb(66, 53, 53)">
+                        <p>Participante 1</p>
+                        <p>Participante 2</p>
+                        <p>Participante 3</p>
+                        <!-- Cada novo participante um novo <p> -->
+                    </label>
+                </div>
+                <p></p>
+                <button class="nes-btn is-success">Adicionar</button>
+                <button class="nes-btn is-error">Remover</button>
+                <button class="nes-btn is-primary">Ok</button>
+            </form>
+        </dialog>
+    </section>
+
+    <section>
         <dialog class="nes-dialog" id="amigos">
             <form method="dialog">
                 <p class="title">Lista de Amigos</p>
-                <label>
-                    <input type="checkbox" class="nes-checkbox" />
-                    <span>Amigo 1</span>
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" class="nes-checkbox" />
-                    <span>Amigo 2</span>
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" class="nes-checkbox" />
-                    <span>Amigo 3</span>
-                </label>
+                <div style="overflow-y: auto; max-height: 150px;">
+                    <label>
+                        <input type="checkbox" class="nes-checkbox" />
+                        <span>Amigo 1</span>
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" class="nes-checkbox" />
+                        <span>Amigo 2</span>
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" class="nes-checkbox" />
+                        <span>Amigo 3</span>
+                    </label>
+                    <br>
+
+
+                    <!-- Amiguinhos AQUI // PRECISA DO <BR> KKKKKKKKKKKKKKKKKKK -->
+                </div>
                 <menu class="dialog-menu">
                     <button class="nes-btn">Cancelar</button>
                     <button class="nes-btn is-primary">Confirmar</button>
