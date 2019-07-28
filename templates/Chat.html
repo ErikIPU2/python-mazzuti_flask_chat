@@ -80,7 +80,7 @@
         </div>
         <div class="col s10">
             <div class="nes-container with-title">
-                <p class="title">[[ Nome do grupo/Nome da pessoa ]]</p>
+                <p class="title" id="room_name">8-bit chat</p>
 
                 <section id="chat" class="message-list" style="overflow-x: hidden; overflow-y: auto; height: 450px;">
 
@@ -93,8 +93,11 @@
                         </div>
                     </section>
 
-                    <section class="message -right">
-                        <div class="nes-balloon from-right">
+                    <section class="message -left">
+                        <div class="nes-balloon from-left">
+                            <label>
+                                <span style="color: red">8Bit</span>
+                            </label>
                             <p>Novas conversas e informações na NavBar</p>
                         </div>
                     </section>
@@ -308,19 +311,12 @@
 
 {# define global constant USERNAME and USERNAME_ID #}
 <script type="text/javascript">
-    var USERNAME = '{{ account.username }}';
-    var USERNAME_ID = {{ account.id }};
+    const USERNAME = '{{ account.username }}';
+    const USERNAME_ID = {{ account.id }};
 </script>
 
 <script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.4.1.min.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/ui-updater.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/create-room.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/change-room.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/add_participant-checkbox.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/remove_participant-checkbox.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/send_message.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/delete_room.js") }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename="js/socket-flags_listener.js") }}"></script>
+
 
 </html>

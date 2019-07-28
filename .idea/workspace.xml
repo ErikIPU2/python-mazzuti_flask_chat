@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="872c4510-f233-4787-b11a-558a603fe5a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/socket-flags_listener.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/socket.io.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/add_participant-checkbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/add_participant-checkbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/add_participant.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/add_participant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/change-room.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/change-room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/create-room.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/create-room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/delete_room.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/delete_room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/remove_participant-checkbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/remove_participant-checkbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/remove_participant.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/remove_participant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/send_message.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/send_message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/socket-flags_listener.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/socket-flags_listener.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/ui-updater.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/legacy/ui-updater.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Chat.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,17 +74,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/Chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="254" column="91" selection-start-line="254" selection-start-column="91" selection-end-line="254" selection-end-column="91" />
+            <state relative-caret-position="432">
+              <caret line="294" column="61" selection-start-line="294" selection-start-column="61" selection-end-line="294" selection-end-column="61" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#section#0;n#section#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#section#1;n#section#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/socket-flags_listener.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/legacy/add_participant-checkbox.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/legacy/socket-flags_listener.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="48">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -88,7 +117,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="1201">
               <caret line="181" column="49" selection-start-line="181" selection-start-column="49" selection-end-line="181" selection-end-column="49" />
               <folding>
                 <element signature="e#0#86#0" expanded="true" />
@@ -122,20 +151,20 @@
         <option value="$PROJECT_DIR$/static/js/create-room.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/static/js/change-room.js" />
-        <option value="$PROJECT_DIR$/static/js/add_participant.js" />
         <option value="$PROJECT_DIR$/static/js/remove_participant.js" />
         <option value="$PROJECT_DIR$/static/js/ui-updater.js" />
         <option value="$PROJECT_DIR$/static/js/send_message.js" />
         <option value="$PROJECT_DIR$/database/Database.py" />
         <option value="$PROJECT_DIR$/static/js/delete_room.js" />
         <option value="$PROJECT_DIR$/static/js/socket.io.js" />
-        <option value="$PROJECT_DIR$/templates/Chat.html" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/static/js/socket-flags_listener.js" />
+        <option value="$PROJECT_DIR$/static/js/add_participant.js" />
+        <option value="$PROJECT_DIR$/templates/Chat.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="1" fullScreen="true">
     <option name="y" value="692" />
     <option name="width" value="1366" />
     <option name="height" value="796" />
@@ -145,6 +174,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,7 +207,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -189,6 +218,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/js/legacy" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -239,13 +273,28 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="database.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="db" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="database/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Docker.database.app: Compose Deployment" />
       <item itemvalue="Docker.database: Compose Deployment" />
+      <item itemvalue="Docker.database.db: Compose Deployment" />
       <item itemvalue="Flask server.python-mazzuti_flask_chat" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.database.db: Compose Deployment" />
         <item itemvalue="Docker.database: Compose Deployment" />
         <item itemvalue="Docker.database.app: Compose Deployment" />
       </list>
@@ -268,11 +317,13 @@
       <workItem from="1563890029396" duration="29959000" />
       <workItem from="1564007383244" duration="3043000" />
       <workItem from="1564026948904" duration="2024000" />
+      <workItem from="1564340814822" duration="404000" />
+      <workItem from="1564341251511" duration="542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40718000" />
+    <option name="totallyTimeSpent" value="41664000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -284,20 +335,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="692" width="1366" height="796" extended-state="6" />
+    <frame x="0" y="692" width="1366" height="796" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16641337" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1724924" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329429" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329429" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329429" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39970717" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329429" />
-      <window_info anchor="bottom" id="Docker" order="7" weight="0.33089313" />
+      <window_info anchor="bottom" id="Docker" order="7" weight="0.32994187" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.329429" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -339,7 +390,7 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_mazzuti_flask_chat$python_mazzuti_flask_chat.coverage" NAME="python-mazzuti_flask_chat Coverage Results" MODIFIED="1564028975364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_mazzuti_flask_chat$python_mazzuti_flask_chat.coverage" NAME="python-mazzuti_flask_chat Coverage Results" MODIFIED="1564341810604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ec4dd5bc-e5ce-46fe-9d1f-6e3a1b54308e/console.sql">
@@ -375,13 +426,6 @@
     <entry file="file://$PROJECT_DIR$/templates/Index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2880" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/common.rnc">
@@ -421,7 +465,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/create-room.js">
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/create-room.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
@@ -437,21 +481,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/add_participant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/add_participant-checkbox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/send_message.js">
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/send_message.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
@@ -465,35 +495,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/remove_participant-checkbox.js">
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/remove_participant-checkbox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="37" column="14" selection-start-line="25" selection-start-column="12" selection-end-line="37" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/remove_participant.js">
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/remove_participant.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="19" column="11" selection-start-line="4" selection-start-column="8" selection-end-line="19" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/ui-updater.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/change-room.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="26" selection-start-line="4" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/delete_room.js">
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/delete_room.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
@@ -510,16 +526,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Chat.html">
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/socket-flags_listener.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="254" column="91" selection-start-line="254" selection-start-column="91" selection-end-line="254" selection-end-column="91" />
+        <state relative-caret-position="48">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="1201">
           <caret line="181" column="49" selection-start-line="181" selection-start-column="49" selection-end-line="181" selection-end-column="49" />
           <folding>
             <element signature="e#0#86#0" expanded="true" />
@@ -527,10 +550,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/socket-flags_listener.js">
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/change-room.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="144">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/ui-updater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="886">
+          <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/add_participant-checkbox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/legacy/add_participant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="294" column="61" selection-start-line="294" selection-start-column="61" selection-end-line="294" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#section#0;n#section#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#section#1;n#section#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
