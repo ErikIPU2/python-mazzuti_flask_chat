@@ -5,6 +5,7 @@ class LazyHtmlCache {
         this.AJAX_TYPE = props.type;
         this.TEMPLATE_FUNCTION = props.template;
         this.TEMPLATE_ITERATOR_KEY = props.templateKey;
+        this.IDENTIFICATOR = props.id;
         this.cache = this.load();
     }
 
@@ -59,11 +60,11 @@ class LazyHtmlCache {
     }
 
     save() {
-        localStorage.setItem('LazyHtmlCache_cache', JSON.stringify(this.cache));
+        localStorage.setItem(`LazyHtmlCache_cache_${this.IDENTIFICATOR}`, JSON.stringify(this.cache));
     }
 
      load() {
-        return JSON.parse(localStorage.getItem('LazyHtmlCache_cache')) || {};
+        return JSON.parse(localStorage.getItem(`LazyHtmlCache_cache_${this.IDENTIFICATOR}`)) || {};
     }
 
 }
