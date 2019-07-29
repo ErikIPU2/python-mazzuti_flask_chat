@@ -46,7 +46,7 @@
         <div class="nav-wrapper grey darken-4">
             <ul class="left hide-on-med-and-down">
                 <li>
-                    <a onclick="document.getElementById('participantes').showModal();">Participantes</a>
+                    <a onclick="" id="participant_button">Participantes</a>
                 </li>
             </ul>
             <a class="brand-logo center"><i class="nes-icon trophy is-large"></i>⠀⠀8-bit Chat</a>
@@ -152,11 +152,6 @@
                 </p>
                 <div style="overflow-y: auto; max-height: 150px;">
                     <ul id="room_list">
-                        {% for room in rooms %}
-                            <a href="#!" class="collection-item">
-                                <li room-id="{{ room.id }}" class="room"><span class="badge">0</span>{{ room.name }}</li>
-                            </a>
-                        {% endfor %}
 
                     </ul>
                 </div>
@@ -171,18 +166,15 @@
     <section>
         <dialog class="nes-dialog is-rounded" id="participantes">
             <form method="dialog">
-                <p class="title">3 participantes</p>
+                <p class="title"><span id="participant_cont">0</span> participantes</p>
                 <div style="overflow-y: auto; max-height: 150px;">
-                    <label style="color:rgb(66, 53, 53)">
-                        <p>Participante 1</p>
-                        <p>Participante 2</p>
-                        <p>Participante 3</p>
-                        <!-- Cada novo participante um novo <p> -->
+                    <label style="color:rgb(66, 53, 53)" id="participant_list">
+
                     </label>
                 </div>
                 <p></p>
-                <button class="nes-btn is-success">Adicionar</button>
-                <button class="nes-btn is-error">Remover</button>
+                <button class="nes-btn is-success" id="button_add_participant">Adicionar</button>
+                <button class="nes-btn is-error" id="button_remove_participant">Remover</button>
                 <button class="nes-btn is-primary">Ok</button>
             </form>
         </dialog>
@@ -306,8 +298,14 @@
 <script type="text/javascript" src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
 
 <script type="text/javascript" src="{{ url_for('static', filename="js/LazyHtmlCache.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/messagesHandler.js") }}"></script>
+
 <script type="text/javascript" src="{{ url_for('static', filename="js/updateRooms.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/roomCreator.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/enterRoom.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/roomInfo.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/removeParticipant.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/addParticipant.js") }}"></script>
 
 
 </html>
