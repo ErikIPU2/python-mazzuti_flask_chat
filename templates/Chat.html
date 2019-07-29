@@ -52,7 +52,7 @@
             <a class="brand-logo center"><i class="nes-icon trophy is-large"></i>⠀⠀8-bit Chat</a>
             <ul class="right hide-on-med-and-down">
                 <li>
-                    <a onclick="document.getElementById('conversas').showModal();">Conversas</a>
+                    <a id="room_list_button">Conversas</a>
                 </li>
                 <li>
                     <a href="/logout">Sair</a>
@@ -151,7 +151,7 @@
                     </a>
                 </p>
                 <div style="overflow-y: auto; max-height: 150px;">
-                    <ul>
+                    <ul id="room_list">
                         {% for room in rooms %}
                             <a href="#!" class="collection-item">
                                 <li room-id="{{ room.id }}" class="room"><span class="badge">0</span>{{ room.name }}</li>
@@ -304,7 +304,10 @@
 
 <script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.4.1.min.js") }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
+
 <script type="text/javascript" src="{{ url_for('static', filename="js/LazyHtmlCache.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/updateRooms.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/roomCreator.js") }}"></script>
 
 
 </html>
