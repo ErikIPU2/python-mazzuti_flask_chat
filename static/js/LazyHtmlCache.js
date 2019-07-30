@@ -17,6 +17,8 @@ class LazyHtmlCache {
         }
 
         $(`#${this.CONTENT_DOM_ID}`).html(this.cache[key].template);
+        let elementScrool = document.getElementById(`${this.CONTENT_DOM_ID}`);
+        elementScrool.scrollTop = elementScrool.scrollHeight;
     }
 
     async renderTemplate(key) {
