@@ -56,7 +56,11 @@ class LazyHtmlCache {
     }
 
     setAsOutdated(key) {
-        this.cache[key].outdated = true;
+        if (this.cache) {
+            if (this.cache[key]) {
+                this.cache[key].outdated = true;
+            }
+        }
     }
 
     save() {

@@ -222,4 +222,4 @@ def check_if_user_is_participant_of_group(user_id, room_id):
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, host='0.0.0.0')
