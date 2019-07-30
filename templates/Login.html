@@ -14,15 +14,18 @@
     <div class="nes-container with-title">
         <p class="title">Entrar</p>
         <div class="nes-field">
-            <label for="name_field">Usuário</label>
-            <input type="text" id="name_field" class="nes-input">
-            <label for="password_field">Senha</label>
-            <input type="password" id="passoword_field" class="nes-input">
-            <br>
-            <button type="button" class="nes-btn is-success">Entrar</button>
-            <a href="/cadastro">
-                <button type="button" class="nes-btn is-warning">Cadastrar</button>
-            </a>
+            <form method="post" action="/login">
+                <label for="name_field">Usuário</label>
+                <input type="text" id="name_field" class="nes-input" name="username">
+                <label for="password_field">Senha</label>
+                <input type="password" id="password_field" class="nes-input" name="password">
+                <br>
+                <button type="submit" class="nes-btn is-success">Entrar</button>
+                <a href="/cadastro">
+                    <button type="button" class="nes-btn is-warning">Cadastrar</button>
+                </a>
+            </form>
+            {{ error_msg }}
         </div>
     </div>
 </body>

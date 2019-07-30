@@ -46,13 +46,13 @@
         <div class="nav-wrapper grey darken-4">
             <ul class="left hide-on-med-and-down">
                 <li>
-                    <a onclick="document.getElementById('participantes').showModal();">Participantes</a>
+                    <a onclick="" id="participant_button">Participantes</a>
                 </li>
             </ul>
             <a class="brand-logo center"><i class="nes-icon trophy is-large"></i>⠀⠀8-bit Chat</a>
             <ul class="right hide-on-med-and-down">
                 <li>
-                    <a onclick="document.getElementById('conversas').showModal();">Conversas</a>
+                    <a id="room_list_button">Conversas</a>
                 </li>
                 <li>
                     <a href="/logout">Sair</a>
@@ -80,9 +80,9 @@
         </div>
         <div class="col s10">
             <div class="nes-container with-title">
-                <p class="title">[[ Nome do grupo/Nome da pessoa ]]</p>
+                <p class="title" id="room_name">8-bit chat</p>
 
-                <section id="chat" class="message-list" style="overflow-x: hidden; overflow-y: auto; height: 450px;">
+                <section id="messages" class="message-list" style="overflow-x: hidden; overflow-y: auto; height: 450px;">
 
                     <section class="message -left">
                         <div class="nes-balloon from-left">
@@ -93,8 +93,11 @@
                         </div>
                     </section>
 
-                    <section class="message -right">
-                        <div class="nes-balloon from-right">
+                    <section class="message -left">
+                        <div class="nes-balloon from-left">
+                            <label>
+                                <span style="color: red">8Bit</span>
+                            </label>
                             <p>Novas conversas e informações na NavBar</p>
                         </div>
                     </section>
@@ -105,11 +108,19 @@
 
                 <div class="row">
                     <div class="col s10">
-                        <textarea style="resize: none; overflow: hidden; height: auto;" id="textarea_field"
-                            class="nes-textarea"></textarea>
+                        <textarea style="resize: none; overflow: hidden; height: auto;" id="message_textarea" class="nes-textarea"></textarea>
                     </div>
                     <div class="col s2">
-                        <button type="button" class="nes-btn is-warning">Enviar</button>
+                        <button type="button" id="send_message_button" class="nes-btn is-warning">Enviar</button>
+                    </div>
+                </div>
+
+                <div class="row" id="add-remove_buttons" style="display: none">
+                    <div class="col s6">
+                        <button type="button" class="nes-btn" id="button_add_participant">Adicionar participante</button>
+                    </div>
+                    <div class="col s6 right-align">
+                        <button type="button" class="nes-btn" id="button_remove_participant">Remover participante</button>
                     </div>
                 </div>
             </div>
@@ -135,28 +146,12 @@
             <form method="dialog">
                 <p class="title">Conversas
                     <a>
-                        <span class="right" onclick="document.getElementById('amigos').showModal();">Adicionar</span>
+                        <span class="right" onclick="document.getElementById('create_room_dialog').showModal();">Criar sala</span>
                     </a>
                 </p>
                 <div style="overflow-y: auto; max-height: 150px;">
-                    <ul>
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">6</span>Conversa 1</li>
-                        </a>
+                    <ul id="room_list">
 
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">3</span>Grupo 1</li>
-                        </a>
-
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">14</span>Grupo 2</li>
-                        </a>
-
-                        <a href="#!" class="collection-item">
-                            <li><span class="badge">0</span>Grupo 3</li>
-                        </a>
-
-                        <!-- AQUI VAI AS CONVERSAS -->
                     </ul>
                 </div>
                 <menu class="dialog-menu">
@@ -170,18 +165,15 @@
     <section>
         <dialog class="nes-dialog is-rounded" id="participantes">
             <form method="dialog">
-                <p class="title">3 participantes</p>
+                <p class="title"><span id="participant_cont">0</span> participantes</p>
                 <div style="overflow-y: auto; max-height: 150px;">
-                    <label style="color:rgb(66, 53, 53)">
-                        <p>Participante 1</p>
-                        <p>Participante 2</p>
-                        <p>Participante 3</p>
-                        <!-- Cada novo participante um novo <p> -->
+                    <label style="color:rgb(66, 53, 53)" id="participant_list">
+
                     </label>
                 </div>
                 <p></p>
-                <button class="nes-btn is-success">Adicionar</button>
-                <button class="nes-btn is-error">Remover</button>
+                <button class="nes-btn is-success" id="button_add_participant">Adicionar</button>
+                <button class="nes-btn is-error" id="button_remove_participant">Remover</button>
                 <button class="nes-btn is-primary">Ok</button>
             </form>
         </dialog>
@@ -218,6 +210,103 @@
             </form>
         </dialog>
     </section>
+
+    <section>
+        <dialog class="nes-dialog" id="create_room_dialog">
+            <form method="dialog">
+                <div id="jquery_form_create-room">
+                    <p class="title">Criar sala</p>
+                    <label for="jf_create_room-name">Nome da sala</label>
+                    <input type="text" id="jf_create_room-name" class="nes-input">
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary" id="jf_create-create">Criar</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <section>
+        <dialog class="nes-dialog" id="add_participant_dialog">
+            <form method="dialog" id="form_add_participant_dialog">
+                <div id="participant_selector">
+                    <p class="title">Selecione quem você deseja adicionar:</p>
+                    <div id="participants_checkbox">
+
+                    </div>
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary" id="dialog_button_add_participant">Adicionar</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <section>
+        <dialog class="nes-dialog" id="remove_participant_dialog">
+            <form method="dialog" id="form_remove_participant_dialog">
+                <div id="remove_participant_selector">
+                    <p class="title">Selecione quem você deseja remover:</p>
+                    <div id="remove_participants_checkbox">
+
+                    </div>
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary" id="dialog_button_remove_participant">Remover</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <section>
+        <dialog class="nes-dialog" id="group_info_dialog">
+            <form method="dialog">
+                <div>
+                    <p class="title">Informações do grupo <span id="grupo-_info_name"></span></p>
+                    <div id="group_info_info">
+                        <div class="nes-container with-title is-centered">
+                          <p class="title">Participantes: </p>
+                          <div class="lists">
+                              <ul class="nes-list is-disc" id="group_info_participants_list">
+
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-primary">Fechar</button>
+                    <button class="nes-btn" id="delete_room_btn">EXCLUIR GRUPO</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
 </body>
+
+{# define global constant USERNAME and USERNAME_ID #}
+<script type="text/javascript">
+    const USERNAME = '{{ account.username }}';
+    const USERNAME_ID = {{ account.id }};
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename="js/jquery-3.4.1.min.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename="js/LazyHtmlCache.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/messagesHandler.js") }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename="js/updateRooms.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/roomCreator.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/enterRoom.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/roomInfo.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/removeParticipant.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/addParticipant.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/sendMessage.js") }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename="js/socketListener.js") }}"></script>
+
 
 </html>
