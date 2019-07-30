@@ -24,7 +24,7 @@ CREATE TABLE `message` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `room_id` INTEGER NOT NULL,
     `user_id` INTEGER NOT NULL,
-    `message` VARCHAR(30) NOT NULL,
+    `message` VARCHAR(500) NOT NULL,
     PRIMARY KEY (`id`),
     FOREIGN KEY(`room_id`) REFERENCES room(`id`),
     FOREIGN KEY(`user_id`) REFERENCES user(`id`)
