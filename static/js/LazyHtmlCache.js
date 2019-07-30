@@ -73,4 +73,9 @@ class LazyHtmlCache {
         return JSON.parse(localStorage.getItem(`LazyHtmlCache_cache_${this.IDENTIFICATOR}`)) || {};
     }
 
+    deleteCache() {
+        this.cache = [];
+        localStorage.removeItem(`LazyHtmlCache_cache_${this.IDENTIFICATOR}`);
+    }
+
 }
