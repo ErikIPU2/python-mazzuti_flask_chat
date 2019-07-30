@@ -179,7 +179,7 @@ def send_message():
     if room_id and message:
 
         Database().send_message(room_id, session['id'], message)
-        socketio.emit('nm', {'message': message})
+        socketio.emit('nm', {'room_id': room_id})
         return jsonify({'status': True})
 
     else:
