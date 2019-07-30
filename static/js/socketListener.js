@@ -6,6 +6,10 @@ socket.on('nm', (data) => {
             htmlCache.setAsOutdated(id);
             if (id === actualRoomId) {
                 htmlCache.setContent(id);
+            } else {
+                let actualMessageCont = parseInt($(`#message-cont-${id}`).html());
+                actualMessageCont++;
+                $(`#message-cont-${id}`).html(actualMessageCont);
             }
         }
     }
