@@ -17,7 +17,7 @@ function updateRooms() {
              for (let room of data) {
                  roomIdList.push(room.id);
                  html += `<a href="#!" class="collection-item">
-                              <li room-id="${room.id}" class="room"><span class="badge">0</span>${room.name}</li>
+                              <li room-id="${room.id}" room-name="${room.name}" class="room"><span class="badge">0</span>${room.name}</li>
                            </a>`;
              }
              $('#room_list').html(html);

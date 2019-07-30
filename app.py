@@ -79,7 +79,6 @@ def chat():
             'id': session['id'],
             'username': session['username']
         }
-        rooms = Database().get_user_rooms(account['id'])
         return render_template('Chat.html', account=account)
     else:
         return redirect(url_for('login'))
